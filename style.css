@@ -1,0 +1,827 @@
+:root {
+    --primary-color: #000000; /* Zwart */
+    --secondary-color: #757575; /* Grijs */
+    --accent-color: #fa5400; /* Oranje */
+    --background-light: #ffffff; /* Wit */
+    --text-dark: #111111; /* Donkergrijs/Zwart */
+    --text-light: #ffffff; /* Wit */
+    --font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    line-height: 1.5;
+    color: var(--text-dark); /* Tekstkleur is donker */
+    background-color: var(--background-light); /* Achtergrond is licht */
+}
+
+/* Header Section */
+#header {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(foto/OK_achtergrond.jpeg); /* Oorspronkelijke achtergrond met overlay */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0; /* Verwijder padding van vorige donkere thema */
+}
+
+#header .container {
+    max-width: 100%; /* Herstel oorspronkelijke breedte */
+    margin: 0 auto;
+}
+
+#header h1 {
+    color: var(--text-light); /* Witte tekst */
+    font-size: 8rem; /* Oorspronkelijke grootte */
+    font-weight: 900;
+    letter-spacing: -4px;
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease;
+}
+
+#header p {
+    color: var(--text-light); /* Witte tekst */
+    font-size: 2rem; /* Oorspronkelijke grootte */
+    font-weight: 400;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* Navigation */
+.nav-bar {
+    background-color: var(--background-light); /* Lichte achtergrond */
+    position: sticky; /* Terug naar sticky */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw */
+    padding: 0 1rem; /* Oorspronkelijke padding */
+    backdrop-filter: none; /* Verwijder blur */
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important; /* Donkere kleur */
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    color: var(--primary-color) !important; /* Donkere kleur */
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 1.5rem 1rem !important; /* Oorspronkelijke padding */
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important; /* Oranje hover */
+}
+
+/* About Section */
+.over {
+    padding: 120px 0; /* Oorspronkelijke padding */
+    background-color: var(--background-light); /* Lichte achtergrond */
+}
+
+.over h3 {
+    color: var(--text-dark); /* Donkere tekst */
+    font-size: 2.5rem; /* Oorspronkelijke grootte */
+    margin-bottom: 2rem;
+}
+
+.over p {
+    color: var(--text-dark); /* Donkere tekst */
+    font-size: 1rem; /* Oorspronkelijke grootte */
+    line-height: 1.6;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 3/4; /* Verticale rechthoek */
+    height: auto;
+    object-fit: cover;
+    border: 6px solid ; /* Oranje border */
+    border-radius: 24px; /* Afgeronde hoeken, geen cirkel */
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15); /* Lichte schaduw */
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s, border-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    background: #fff; /* Witte achtergrond voor contrast */
+}
+
+.profile-img:hover {
+    transform: scale(1.06) rotate(-2deg);
+    box-shadow: 0 12px 32px rgba(250,84,0,0.18);
+    border-color: #111; /* Donkere border op hover */
+}
+
+/* Skills Section */
+.skills-bar {
+    margin-top: 3rem;
+}
+
+.skill-item p {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark); /* Donkere tekst */
+}
+
+.progress {
+    height: 8px;
+    background-color: #f5f5f5; /* Lichtgrijs */
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    background-color: var(--accent-color); /* Oranje */
+    transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* CV Section */
+.cv {
+    background-color: #f5f5f5; /* Lichtgrijs */
+    padding: 120px 0; /* Oorspronkelijke padding */
+}
+
+.cv h1 {
+    font-size: 3.5rem; /* Oorspronkelijke grootte */
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    text-align: center;
+    color: var(--text-dark); /* Donkere tekst */
+}
+
+.timeline li {
+    background: var(--background-light); /* Witte achtergrond */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw */
+}
+
+.timeline li:hover {
+    transform: translateX(10px); /* Oorspronkelijke hover */
+    background-color: var(--primary-color); /* Zwarte achtergrond op hover */
+    color: var(--text-light); /* Witte tekst op hover */
+}
+
+.timeline li h4 {
+    font-weight: 900; /* Oorspronkelijke font weight */
+    text-transform: uppercase;
+    margin-bottom: 1rem; /* Oorspronkelijke margin */
+    color: var(--primary-color); /* Donkere kleur */
+}
+
+.timeline li:hover h4 {
+    color: var(--text-light); /* Witte kleur op hover */
+}
+
+.timeline li p {
+    color: var(--text-dark); /* Donkere tekst */
+    font-size: 1rem;
+    line-height: 1.5; /* Oorspronkelijke line height */
+}
+
+.timeline li:hover p {
+    color: var(--text-light); /* Witte tekst op hover */
+}
+
+/* Service Section */
+.mijn-service {
+    padding: 120px 0;
+    background-color: var(--background-light);
+}
+
+.mijn-service .section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+.vaardigheden .section-title{
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.service-title {
+    font-size: 3.5rem; /* Oorspronkelijke grootte */
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    text-align: center;
+    color: var(--text-dark); /* Donkere tekst */
+}
+
+.service-item {
+    background-color: var(--background-light); /* Witte achtergrond */
+    padding: 2rem;
+    border-radius: 12px; /* Oorspronkelijke border-radius */
+    transition: all 0.3s ease;
+    border: 1px solid #212121; /* Donkere rand */
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw */
+}
+
+.service-item:hover {
+    transform: translateY(-10px); /* Oorspronkelijke hover */
+    background-color: var(--primary-color); /* Zwarte achtergrond op hover */
+    color: var(--text-light); /* Witte tekst op hover */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw op hover */
+}
+
+.service-item i {
+    font-size: 3.5rem; /* Oorspronkelijke grootte */
+    margin-bottom: 1rem;
+    color: var(--accent-color); /* Oranje kleur */
+    transition: all 0.3s ease;
+}
+
+.service-item:hover i {
+    color: var(--text-light); /* Witte kleur op hover */
+}
+
+.service-item h5 {
+    font-size: 1.2rem; /* Oorspronkelijke grootte */
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    color: var(--text-dark); /* Donkere tekst */
+}
+
+.service-item:hover h5 {
+    color: var(--text-light); /* Witte tekst op hover */
+}
+
+.service-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: var(--text-dark); /* Donkere tekst */
+}
+
+.service-item:hover p {
+    color: var(--text-light); /* Witte tekst op hover */
+}
+
+.gesproken-talen-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.gesproken-taal-card {
+    background: #f7f7fa;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 40px 32px 32px 32px;
+    text-align: center;
+    min-width: 180px;
+    max-width: 240px;
+    margin: 0 8px 24px 8px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border: 2px solid #ece6f6;
+}
+.gesproken-taal-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(125,62,182,0.13);
+    border-color: var(--accent-color);
+}
+.gesproken-taal-card i {
+    font-size: 3.2rem;
+    color: #7d3eb6;
+    margin-bottom: 18px;
+}
+.gesproken-taal-card h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+    .gesproken-talen-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .gesproken-taal-card {
+        min-width: 70vw;
+        max-width: 90vw;
+    }
+}
+
+/* Projects Section */
+.projects {
+    padding: 150px 0; /* Vergroot de top en bottom padding */
+    background-color: #f5f5f5; /* Lichtgrijs, consistent met CV sectie */
+}
+
+.projects .section-title {
+    font-size: 3.5rem; /* Consistent met CV titel */
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 80px; /* Vergroot de ruimte onder de titel */
+    text-align: center;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.projects-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px; /* Optioneel: beperk breedte voor leesbaarheid */
+    margin: 0 auto; /* Centreer de lijst */
+}
+
+.projects-list li {
+    background: var(--background-light); /* Witte achtergrond */
+    padding: 3.5rem; /* Vergroot de interne padding van elk project item nog meer */
+    margin-bottom: 4.5rem; /* Vergroot de ruimte tussen project items nog meer */
+    border-radius: 8px; /* Iets rondere hoeken */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoothere transitie */
+    border: none;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Iets prominentere schaduw */
+    overflow: hidden; /* Zorgt ervoor dat de border-radius werkt met de inhoud */
+}
+
+.projects-list li:hover {
+    transform: translateY(-5px); /* Lift het item iets op */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Grotere schaduw op hover */
+    /* Achtergrond en tekstkleur veranderen niet op hover in deze lichte stijl */
+}
+
+.project-content {
+    display: flex; /* Gebruik flexbox voor layout */
+    flex-direction: column; /* Standaard onder elkaar op kleine schermen */
+    gap: 2rem; /* Ruimte tussen tekst en afbeelding */
+}
+
+@media (min-width: 768px) { /* Vanaf medium schermen */
+    .project-content {
+        flex-direction: row; /* Naast elkaar op grotere schermen */
+        align-items: center; /* Centreer items verticaal */
+    }
+
+    .project-text {
+        flex: 1; /* Neemt beschikbare ruimte in */
+        padding-right: 2rem; /* Ruimte tussen tekst en afbeelding */
+    }
+
+    .project-image {
+        flex-shrink: 0; /* Voorkom dat de afbeelding kleiner wordt dan nodig */
+        width: 40%; /* Geef de afbeelding een vaste breedte */
+        max-width: 400px; /* Maximale breedte voor de afbeelding */
+    }
+
+    /* Wissel de volgorde van tekst en afbeelding voor afwisseling */
+    .projects-list li:nth-child(even) .project-content {
+        flex-direction: row-reverse;
+    }
+
+     .projects-list li:nth-child(even) .project-text {
+        padding-right: 0;
+        padding-left: 2rem;
+    }
+}
+
+.projects-list li h4 {
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Donkere kleur */
+}
+
+.projects-list li p {
+    color: var(--text-dark); /* Donkere tekst */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.projects-list li a {
+    color: var(--accent-color); /* Oranje kleur voor links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.projects-list li a:hover {
+    color: var(--primary-color); /* Donkere kleur op hover */
+}
+
+.project-image img {
+    max-width: 100%; /* Zorgt ervoor dat de afbeelding niet breder is dan de container */
+    height: auto; /* Behoudt de aspect ratio */
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.project-details {
+    margin-top: 1.5rem; /* Ruimte boven de details */
+    border-top: 1px solid #eee; /* Lichte scheidingslijn */
+    padding-top: 1.5rem;
+}
+
+.project-details h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color); /* Grijs voor subtitel */
+    text-transform: uppercase;
+}
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0; /* Ruimte onder de lijst */
+    display: flex; /* Gebruik flexbox voor de technologieën */
+    flex-wrap: wrap; /* Laat items naar de volgende regel gaan */
+    gap: 0.8rem; /* Ruimte tussen de technologieën */
+}
+
+.tech-list li {
+    background-color: #eee; /* Lichte achtergrond voor technologie tags */
+    color: var(--text-dark); /* Donkere tekst */
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px; /* Ronde hoeken voor tag-look */
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0; /* Verwijder margin-bottom van li in flexbox */
+    box-shadow: none; /* Verwijder schaduw van li */
+    transition: none; /* Verwijder transitie van li */
+}
+
+.tech-list li:hover {
+     transform: none; /* Verwijder transform op hover */
+     background-color: var(--accent-color); /* Oranje achtergrond op hover */
+     color: var(--text-light); /* Witte tekst op hover */
+}
+
+.github-link {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.github-link a {
+    display: inline-flex; /* Zorgt ervoor dat icoon en tekst op één lijn staan */
+    align-items: center;
+    gap: 0.5rem; /* Ruimte tussen icoon en tekst */
+    font-weight: 600;
+}
+
+.github-link a i {
+    font-size: 1.2rem; /* Grootte van het GitHub icoon */
+    color: var(--primary-color); /* Donkere kleur voor icoon */
+    transition: color 0.3s ease;
+}
+
+.github-link a:hover i {
+    color: var(--accent-color); /* Oranje kleur op hover */
+}
+
+/* Contact Section */
+.contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(foto/OK_achtergrond.jpeg); /* Oorspronkelijke achtergrond met donkere overlay */
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0; /* Oorspronkelijke padding */
+    position: relative;
+    margin-bottom: 0;
+    color: var(--text-light); /* Witte tekst */
+}
+
+.contact h1 {
+    font-size: 3.5rem; /* Oorspronkelijke grootte */
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-light); /* Witte tekst */
+    margin-bottom: 2rem;
+}
+
+.contact p {
+    color: var(--text-light); /* Witte tekst */
+    font-size: 1.2rem; /* Oorspronkelijke grootte */
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.contact .row {
+    display: flex; /* Gebruik flexbox voor layout */
+    justify-content: center; /* Centreer kolommen */
+    gap: 2rem; /* Voeg ruimte toe tussen kolommen */
+}
+
+.contact .col-md-4 {
+    flex: 1; /* Laat kolommen flexibel zijn */
+    max-width: 300px; /* Beperk maximale breedte */
+    text-align: center;
+}
+
+.contact a {
+    color: var(--text-light); /* Witte links */
+    font-size: 1.2rem; /* Oorspronkelijke grootte */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+}
+
+.contact a:hover {
+    color: var(--accent-color); /* Oranje hover */
+}
+
+.contact i {
+    font-size: 2.5rem; /* Oorspronkelijke grootte */
+    margin-bottom: 1rem;
+    color: var(--accent-color); /* Oranje kleur */
+}
+
+/* Footer Section */
+.footer {
+    background-color: var(--primary-color); /* Zwarte achtergrond */
+    padding: 80px 0 40px; /* Oorspronkelijke padding */
+    position: relative;
+    z-index: 1;
+    color: var(--text-light); /* Witte tekst */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.footer-brand {
+    margin-bottom: 32px; /* Oorspronkelijke margin */
+}
+
+.footer-logo {
+    font-size: 36px; /* Oorspronkelijke grootte */
+    font-weight: 700;
+    color: var(--text-light); /* Witte kleur */
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Oorspronkelijke gap */
+    margin: 32px 0;
+}
+
+.footer-social a {
+    color: var(--text-light); /* Witte iconen */
+    font-size: 32px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    padding: 10px;
+}
+
+.footer-social a:hover {
+    opacity: 1;
+    color: var(--accent-color); /* Oranje hover */
+    transform: translateY(-3px);
+}
+
+.footer-info {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lichte rand */
+}
+
+.footer-info p {
+    color: var(--text-light); /* Witte tekst */
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 8px 0;
+    opacity: 0.8;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-info {
+        grid-column: 1;
+        text-align: center;
+    }
+
+    .footer-links {
+        grid-column: 1;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #header h1 {
+        font-size: 4rem; /* Oorspronkelijke grootte */
+    }
+
+    #header p {
+        font-size: 1.2rem; /* Oorspronkelijke grootte */
+    }
+
+    .service-title, .projects .section-title { /* Added projects title */
+        font-size: 2.5rem; /* Oorspronkelijke grootte */
+    }
+
+    .contact h1 {
+        font-size: 2.5rem; /* Oorspronkelijke grootte */
+    }
+
+    .over, .cv, .mijn-service, .contact, .projects { /* Added projects */
+        padding: 60px 0; /* Oorspronkelijke padding */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+/* Responsive Design */
+/* iPad Pro */
+@media (max-width: 1024px) {
+    #header h1 {
+        font-size: 6rem; /* Oorspronkelijke grootte */
+    }
+
+    .service-item {
+        padding: 1.5rem; /* Oorspronkelijke padding */
+    }
+
+    .service-item i {
+        font-size: 3rem; /* Oorspronkelijke grootte */
+    }
+
+    .timeline li {
+        padding: 1.5rem; /* Oorspronkelijke padding */
+    }
+}
+
+/* iPhone SE and Extra Small Devices */
+@media (max-width: 375px) {
+    #header h1 {
+        font-size: 2.5rem; /* Oorspronkelijke grootte */
+    }
+
+    .service-item {
+        padding: 1rem; /* Oorspronkelijke padding */
+    }
+
+    .service-item i {
+        font-size: 2rem; /* Oorspronkelijke grootte */
+    }
+
+    .timeline li {
+        padding: 1rem; /* Oorspronkelijke padding */
+    }
+
+    .footer-social {
+        gap: 16px; /* Oorspronkelijke gap */
+    }
+    .cv h1{
+        font-size: 2rem;
+    }
+    .mijn-service .section-title{
+        font-size: 2rem;
+    }
+    .vaardigheden .section-title{
+        font-size: 2rem;
+    }
+}
+
+/* Landscape Mode Fixes */
+@media (max-height: 576px) and (orientation: landscape) {
+    #header {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 0;
+    }
+
+    #header h1 {
+        font-size: 3rem;
+    }
+
+    .nav-link {
+        padding: 0.75rem !important;
+    }
+}
+
+/* Fix for devices with notches */
+@supports (padding: max(0px)) {
+    .nav-bar {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+
+    .footer {
+        padding-bottom: max(40px, env(safe-area-inset-bottom));
+    }
+}
+
+.vaardigheden {
+    padding: 120px 0;
+    background: #f5f5f5;
+}
+.vaardigheden-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+.vaardigheid-card {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 40px 32px 32px 32px;
+    text-align: center;
+    min-width: 200px;
+    max-width: 260px;
+    margin: 0 8px 24px 8px;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    border: 2px solid #ece6f6;
+}
+.vaardigheid-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(125,62,182,0.13);
+    border-color: var(--accent-color);
+}
+.vaardigheid-icoon i {
+    font-size: 3.2rem;
+    color: #7d3eb6;
+    margin-bottom: 18px;
+}
+.vaardigheid-card h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 12px 0;
+    letter-spacing: 1px;
+}
+.vaardigheid-card p {
+    color: #444;
+    font-size: 1rem;
+    margin: 0;
+}
+@media (max-width: 900px) {
+    .vaardigheden-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .vaardigheid-card {
+        min-width: 70vw;
+        max-width: 90vw;
+    }
+}
