@@ -1,827 +1,1170 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-    --primary-color: #000000; /* Zwart */
-    --secondary-color: #757575; /* Grijs */
-    --accent-color: #fa5400; /* Oranje */
-    --background-light: #ffffff; /* Wit */
-    --text-dark: #111111; /* Donkergrijs/Zwart */
-    --text-light: #ffffff; /* Wit */
-    --font-primary: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --navy:    #0f172a;
+    --navy-80: rgba(15,23,42,0.8);
+    --slate:   #475569;
+    --blue:    #2563eb;
+    --blue-light: #dbeafe;
+    --bg:      #ffffff;
+    --bg-alt:  #f8fafc;
+    --border:  #e2e8f0;
+    --text:    #1e293b;
+    --muted:   #64748b;
+    --white:   #ffffff;
+    --radius:  12px;
+    --shadow:  0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-hover: 0 8px 32px rgba(37,99,235,0.12), 0 2px 8px rgba(0,0,0,0.08);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-primary);
-    line-height: 1.5;
-    color: var(--text-dark); /* Tekstkleur is donker */
-    background-color: var(--background-light); /* Achtergrond is licht */
-}
-
-/* Header Section */
-#header {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(foto/OK_achtergrond.jpeg); /* Oorspronkelijke achtergrond met overlay */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0; /* Verwijder padding van vorige donkere thema */
-}
-
-#header .container {
-    max-width: 100%; /* Herstel oorspronkelijke breedte */
-    margin: 0 auto;
-}
-
-#header h1 {
-    color: var(--text-light); /* Witte tekst */
-    font-size: 8rem; /* Oorspronkelijke grootte */
-    font-weight: 900;
-    letter-spacing: -4px;
-    margin: 0;
-    line-height: 1;
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease;
-}
-
-#header p {
-    color: var(--text-light); /* Witte tekst */
-    font-size: 2rem; /* Oorspronkelijke grootte */
-    font-weight: 400;
-    margin-top: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: fadeInUp 1s ease 0.3s forwards;
-}
-
-/* Navigation */
-.nav-bar {
-    background-color: var(--background-light); /* Lichte achtergrond */
-    position: sticky; /* Terug naar sticky */
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw */
-    padding: 0 1rem; /* Oorspronkelijke padding */
-    backdrop-filter: none; /* Verwijder blur */
-}
-
-.navbar-brand {
-    color: var(--primary-color) !important; /* Donkere kleur */
-    font-weight: 900;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-}
-
-.nav-link {
-    color: var(--primary-color) !important; /* Donkere kleur */
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    padding: 1.5rem 1rem !important; /* Oorspronkelijke padding */
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--accent-color) !important; /* Oranje hover */
-}
-
-/* About Section */
-.over {
-    padding: 120px 0; /* Oorspronkelijke padding */
-    background-color: var(--background-light); /* Lichte achtergrond */
-}
-
-.over h3 {
-    color: var(--text-dark); /* Donkere tekst */
-    font-size: 2.5rem; /* Oorspronkelijke grootte */
-    margin-bottom: 2rem;
-}
-
-.over p {
-    color: var(--text-dark); /* Donkere tekst */
-    font-size: 1rem; /* Oorspronkelijke grootte */
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-.profile-img {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 3/4; /* Verticale rechthoek */
-    height: auto;
-    object-fit: cover;
-    border: 6px solid ; /* Oranje border */
-    border-radius: 24px; /* Afgeronde hoeken, geen cirkel */
-    box-shadow: 0 6px 24px rgba(0,0,0,0.15); /* Lichte schaduw */
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s, border-color 0.3s;
-    display: block;
-    margin: 0 auto;
-    background: #fff; /* Witte achtergrond voor contrast */
-}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
 
-.profile-img:hover {
-    transform: scale(1.06) rotate(-2deg);
-    box-shadow: 0 12px 32px rgba(250,84,0,0.18);
-    border-color: #111; /* Donkere border op hover */
-}
-
-/* Skills Section */
-.skills-bar {
-    margin-top: 3rem;
-}
-
-.skill-item p {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark); /* Donkere tekst */
-}
-
-.progress {
-    height: 8px;
-    background-color: #f5f5f5; /* Lichtgrijs */
-    border-radius: 0;
-    overflow: hidden;
-    margin-bottom: 2rem;
-}
-
-.progress-bar {
-    background-color: var(--accent-color); /* Oranje */
-    transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* CV Section */
-.cv {
-    background-color: #f5f5f5; /* Lichtgrijs */
-    padding: 120px 0; /* Oorspronkelijke padding */
-}
-
-.cv h1 {
-    font-size: 3.5rem; /* Oorspronkelijke grootte */
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 60px;
-    letter-spacing: -1px;
-    text-align: center;
-    color: var(--text-dark); /* Donkere tekst */
-}
-
-.timeline li {
-    background: var(--background-light); /* Witte achtergrond */
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw */
-}
-
-.timeline li:hover {
-    transform: translateX(10px); /* Oorspronkelijke hover */
-    background-color: var(--primary-color); /* Zwarte achtergrond op hover */
-    color: var(--text-light); /* Witte tekst op hover */
-}
-
-.timeline li h4 {
-    font-weight: 900; /* Oorspronkelijke font weight */
-    text-transform: uppercase;
-    margin-bottom: 1rem; /* Oorspronkelijke margin */
-    color: var(--primary-color); /* Donkere kleur */
-}
-
-.timeline li:hover h4 {
-    color: var(--text-light); /* Witte kleur op hover */
-}
-
-.timeline li p {
-    color: var(--text-dark); /* Donkere tekst */
-    font-size: 1rem;
-    line-height: 1.5; /* Oorspronkelijke line height */
-}
-
-.timeline li:hover p {
-    color: var(--text-light); /* Witte tekst op hover */
-}
-
-/* Service Section */
-.mijn-service {
-    padding: 120px 0;
-    background-color: var(--background-light);
-}
-
-.mijn-service .section-title {
-    text-align: center;
-    font-size: 3.5rem;
-    font-weight: 900;
-}
-.vaardigheden .section-title{
-    text-align: center;
-    font-size: 3.5rem;
-    font-weight: 900;
-}
-
-.service-title {
-    font-size: 3.5rem; /* Oorspronkelijke grootte */
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 60px;
-    letter-spacing: -1px;
-    text-align: center;
-    color: var(--text-dark); /* Donkere tekst */
-}
-
-.service-item {
-    background-color: var(--background-light); /* Witte achtergrond */
-    padding: 2rem;
-    border-radius: 12px; /* Oorspronkelijke border-radius */
-    transition: all 0.3s ease;
-    border: 1px solid #212121; /* Donkere rand */
-    margin-bottom: 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw */
-}
-
-.service-item:hover {
-    transform: translateY(-10px); /* Oorspronkelijke hover */
-    background-color: var(--primary-color); /* Zwarte achtergrond op hover */
-    color: var(--text-light); /* Witte tekst op hover */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Oorspronkelijke schaduw op hover */
-}
-
-.service-item i {
-    font-size: 3.5rem; /* Oorspronkelijke grootte */
-    margin-bottom: 1rem;
-    color: var(--accent-color); /* Oranje kleur */
-    transition: all 0.3s ease;
-}
-
-.service-item:hover i {
-    color: var(--text-light); /* Witte kleur op hover */
-}
-
-.service-item h5 {
-    font-size: 1.2rem; /* Oorspronkelijke grootte */
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 0;
-    color: var(--text-dark); /* Donkere tekst */
-}
-
-.service-item:hover h5 {
-    color: var(--text-light); /* Witte tekst op hover */
-}
-
-.service-item p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 0;
-    color: var(--text-dark); /* Donkere tekst */
-}
-
-.service-item:hover p {
-    color: var(--text-light); /* Witte tekst op hover */
-}
-
-.gesproken-talen-row {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-top: 32px;
-}
-
-.gesproken-taal-card {
-    background: #f7f7fa;
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 40px 32px 32px 32px;
-    text-align: center;
-    min-width: 180px;
-    max-width: 240px;
-    margin: 0 8px 24px 8px;
-    transition: transform 0.25s, box-shadow 0.25s;
-    border: 2px solid #ece6f6;
-}
-.gesproken-taal-card:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow: 0 8px 32px rgba(125,62,182,0.13);
-    border-color: var(--accent-color);
-}
-.gesproken-taal-card i {
-    font-size: 3.2rem;
-    color: #7d3eb6;
-    margin-bottom: 18px;
-}
-.gesproken-taal-card h5 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #222;
-    margin: 0;
-    letter-spacing: 1px;
-}
-@media (max-width: 768px) {
-    .gesproken-talen-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-    }
-    .gesproken-taal-card {
-        min-width: 70vw;
-        max-width: 90vw;
-    }
-}
-
-/* Projects Section */
-.projects {
-    padding: 150px 0; /* Vergroot de top en bottom padding */
-    background-color: #f5f5f5; /* Lichtgrijs, consistent met CV sectie */
-}
-
-.projects .section-title {
-    font-size: 3.5rem; /* Consistent met CV titel */
-    font-weight: 900;
-    color: var(--text-dark);
-    margin-bottom: 80px; /* Vergroot de ruimte onder de titel */
-    text-align: center;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-}
-
-.projects-list {
-    list-style: none;
-    padding: 0;
-    max-width: 800px; /* Optioneel: beperk breedte voor leesbaarheid */
-    margin: 0 auto; /* Centreer de lijst */
-}
-
-.projects-list li {
-    background: var(--background-light); /* Witte achtergrond */
-    padding: 3.5rem; /* Vergroot de interne padding van elk project item nog meer */
-    margin-bottom: 4.5rem; /* Vergroot de ruimte tussen project items nog meer */
-    border-radius: 8px; /* Iets rondere hoeken */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smoothere transitie */
-    border: none;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Iets prominentere schaduw */
-    overflow: hidden; /* Zorgt ervoor dat de border-radius werkt met de inhoud */
-}
-
-.projects-list li:hover {
-    transform: translateY(-5px); /* Lift het item iets op */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Grotere schaduw op hover */
-    /* Achtergrond en tekstkleur veranderen niet op hover in deze lichte stijl */
-}
-
-.project-content {
-    display: flex; /* Gebruik flexbox voor layout */
-    flex-direction: column; /* Standaard onder elkaar op kleine schermen */
-    gap: 2rem; /* Ruimte tussen tekst en afbeelding */
-}
-
-@media (min-width: 768px) { /* Vanaf medium schermen */
-    .project-content {
-        flex-direction: row; /* Naast elkaar op grotere schermen */
-        align-items: center; /* Centreer items verticaal */
-    }
-
-    .project-text {
-        flex: 1; /* Neemt beschikbare ruimte in */
-        padding-right: 2rem; /* Ruimte tussen tekst en afbeelding */
-    }
-
-    .project-image {
-        flex-shrink: 0; /* Voorkom dat de afbeelding kleiner wordt dan nodig */
-        width: 40%; /* Geef de afbeelding een vaste breedte */
-        max-width: 400px; /* Maximale breedte voor de afbeelding */
-    }
-
-    /* Wissel de volgorde van tekst en afbeelding voor afwisseling */
-    .projects-list li:nth-child(even) .project-content {
-        flex-direction: row-reverse;
-    }
-
-     .projects-list li:nth-child(even) .project-text {
-        padding-right: 0;
-        padding-left: 2rem;
-    }
-}
-
-.projects-list li h4 {
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    color: var(--primary-color); /* Donkere kleur */
-}
-
-.projects-list li p {
-    color: var(--text-dark); /* Donkere tekst */
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.projects-list li a {
-    color: var(--accent-color); /* Oranje kleur voor links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.projects-list li a:hover {
-    color: var(--primary-color); /* Donkere kleur op hover */
-}
-
-.project-image img {
-    max-width: 100%; /* Zorgt ervoor dat de afbeelding niet breder is dan de container */
-    height: auto; /* Behoudt de aspect ratio */
-    display: block;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.project-details {
-    margin-top: 1.5rem; /* Ruimte boven de details */
-    border-top: 1px solid #eee; /* Lichte scheidingslijn */
-    padding-top: 1.5rem;
-}
-
-.project-details h5 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.8rem;
-    color: var(--secondary-color); /* Grijs voor subtitel */
-    text-transform: uppercase;
-}
-
-.tech-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem 0; /* Ruimte onder de lijst */
-    display: flex; /* Gebruik flexbox voor de technologieën */
-    flex-wrap: wrap; /* Laat items naar de volgende regel gaan */
-    gap: 0.8rem; /* Ruimte tussen de technologieën */
-}
-
-.tech-list li {
-    background-color: #eee; /* Lichte achtergrond voor technologie tags */
-    color: var(--text-dark); /* Donkere tekst */
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px; /* Ronde hoeken voor tag-look */
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 0; /* Verwijder margin-bottom van li in flexbox */
-    box-shadow: none; /* Verwijder schaduw van li */
-    transition: none; /* Verwijder transitie van li */
-}
-
-.tech-list li:hover {
-     transform: none; /* Verwijder transform op hover */
-     background-color: var(--accent-color); /* Oranje achtergrond op hover */
-     color: var(--text-light); /* Witte tekst op hover */
-}
-
-.github-link {
-    margin-top: 1rem;
-    font-size: 1rem;
-}
-
-.github-link a {
-    display: inline-flex; /* Zorgt ervoor dat icoon en tekst op één lijn staan */
-    align-items: center;
-    gap: 0.5rem; /* Ruimte tussen icoon en tekst */
-    font-weight: 600;
-}
-
-.github-link a i {
-    font-size: 1.2rem; /* Grootte van het GitHub icoon */
-    color: var(--primary-color); /* Donkere kleur voor icoon */
-    transition: color 0.3s ease;
-}
-
-.github-link a:hover i {
-    color: var(--accent-color); /* Oranje kleur op hover */
-}
-
-/* Contact Section */
-.contact {
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(foto/OK_achtergrond.jpeg); /* Oorspronkelijke achtergrond met donkere overlay */
-    background-size: cover;
-    background-position: center;
-    padding: 120px 0; /* Oorspronkelijke padding */
-    position: relative;
-    margin-bottom: 0;
-    color: var(--text-light); /* Witte tekst */
-}
-
-.contact h1 {
-    font-size: 3.5rem; /* Oorspronkelijke grootte */
-    font-weight: 900;
-    text-transform: uppercase;
-    color: var(--text-light); /* Witte tekst */
-    margin-bottom: 2rem;
-}
-
-.contact p {
-    color: var(--text-light); /* Witte tekst */
-    font-size: 1.2rem; /* Oorspronkelijke grootte */
-    margin-bottom: 3rem;
-    opacity: 0.9;
-}
-
-.contact .row {
-    display: flex; /* Gebruik flexbox voor layout */
-    justify-content: center; /* Centreer kolommen */
-    gap: 2rem; /* Voeg ruimte toe tussen kolommen */
-}
-
-.contact .col-md-4 {
-    flex: 1; /* Laat kolommen flexibel zijn */
-    max-width: 300px; /* Beperk maximale breedte */
-    text-align: center;
-}
-
-.contact a {
-    color: var(--text-light); /* Witte links */
-    font-size: 1.2rem; /* Oorspronkelijke grootte */
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-}
-
-.contact a:hover {
-    color: var(--accent-color); /* Oranje hover */
-}
-
-.contact i {
-    font-size: 2.5rem; /* Oorspronkelijke grootte */
-    margin-bottom: 1rem;
-    color: var(--accent-color); /* Oranje kleur */
-}
-
-/* Footer Section */
-.footer {
-    background-color: var(--primary-color); /* Zwarte achtergrond */
-    padding: 80px 0 40px; /* Oorspronkelijke padding */
-    position: relative;
-    z-index: 1;
-    color: var(--text-light); /* Witte tekst */
-}
-
-.footer-content {
-    max-width: 1200px;
+/* ===== Layout ===== */
+.container {
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 24px;
-    text-align: center;
 }
 
-.footer-brand {
-    margin-bottom: 32px; /* Oorspronkelijke margin */
+section {
+    padding: 100px 0;
 }
 
-.footer-logo {
-    font-size: 36px; /* Oorspronkelijke grootte */
+.section-alt {
+    background: var(--bg-alt);
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--text-light); /* Witte kleur */
-    margin-bottom: 32px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
 }
 
-.footer-social {
+.section-label.light {
+    color: var(--blue-light);
+    background: rgba(255,255,255,0.12);
+}
+
+.section-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 48px;
+}
+
+.section-heading.light {
+    color: var(--white);
+}
+
+/* ===== Progress Bar ===== */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: var(--blue);
+    z-index: 2000;
+    transition: width 0.1s linear;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1003;
+    padding: 20px 0;
+    transition: all var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 0;
+    box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1001;
+}
+
+.nav-brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    transition: opacity var(--transition);
+}
+
+.navbar.scrolled .nav-brand {
+    color: var(--navy);
+}
+
+.nav-brand:hover { opacity: 0.75; }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--white);
+    transition: all var(--transition);
+}
+
+.navbar.scrolled .nav-links a {
+    color: var(--slate);
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+}
+
+.navbar.scrolled .nav-links a:hover {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+/* Mobile toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all var(--transition);
+}
+
+.navbar.scrolled .nav-toggle span { background: var(--navy); }
+
+/* Typewriter cursor */
+.cursor {
+    display: inline-block;
+    color: rgba(255,255,255,0.7);
+    animation: blink 0.8s step-end infinite;
+    font-weight: 300;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* Active nav link */
+.nav-links a.active {
+    background: rgba(255,255,255,0.15);
+}
+.navbar.scrolled .nav-links a.active {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+/* ===== Stats Bar ===== */
+.stats-bar {
+    background: var(--navy);
+    padding: 0;
+}
+
+.stats-grid {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 40px; /* Oorspronkelijke gap */
-    margin: 32px 0;
+    flex-wrap: wrap;
 }
 
-.footer-social a {
-    color: var(--text-light); /* Witte iconen */
-    font-size: 32px;
-    transition: all 0.3s ease;
-    opacity: 0.8;
-    padding: 10px;
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 40px;
+    gap: 4px;
 }
 
-.footer-social a:hover {
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.stat-number.stat-text {
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.12);
+}
+
+
+/* ===== Back to top ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all var(--transition);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
     opacity: 1;
-    color: var(--accent-color); /* Oranje hover */
-    transform: translateY(-3px);
+    transform: translateY(0);
 }
 
-.footer-info {
+.back-to-top:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(37,99,235,0.5);
+}
+
+/* ===== Hero ===== */
+#hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(15,23,42,0.75) 100%),
+                url('foto/OK_achtergrond.jpeg') center/cover no-repeat;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 780px;
+    animation: fadeUp 0.9s ease both;
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 16px;
+}
+
+.hero-name {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.35);
+}
+
+.btn-outline {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-2px);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.2rem;
+    animation: bounce 2s ease infinite;
+    transition: color var(--transition);
+}
+
+.scroll-hint:hover { color: rgba(255,255,255,0.9); }
+
+/* ===== Profiel ===== */
+.profiel-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.profiel-grid.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.profiel-text p {
+    color: var(--slate);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.profiel-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 32px;
     padding-top: 32px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lichte rand */
+    border-top: 1px solid var(--border);
 }
 
-.footer-info p {
-    color: var(--text-light); /* Witte tekst */
-    font-size: 16px;
-    line-height: 1.8;
-    margin: 8px 0;
-    opacity: 0.8;
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 32px;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-
-    .footer-info {
-        grid-column: 1;
-        text-align: center;
-    }
-
-    .footer-links {
-        grid-column: 1;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #header h1 {
-        font-size: 4rem; /* Oorspronkelijke grootte */
-    }
-
-    #header p {
-        font-size: 1.2rem; /* Oorspronkelijke grootte */
-    }
-
-    .service-title, .projects .section-title { /* Added projects title */
-        font-size: 2.5rem; /* Oorspronkelijke grootte */
-    }
-
-    .contact h1 {
-        font-size: 2.5rem; /* Oorspronkelijke grootte */
-    }
-
-    .over, .cv, .mijn-service, .contact, .projects { /* Added projects */
-        padding: 60px 0; /* Oorspronkelijke padding */
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-}
-
-/* Responsive Design */
-/* iPad Pro */
-@media (max-width: 1024px) {
-    #header h1 {
-        font-size: 6rem; /* Oorspronkelijke grootte */
-    }
-
-    .service-item {
-        padding: 1.5rem; /* Oorspronkelijke padding */
-    }
-
-    .service-item i {
-        font-size: 3rem; /* Oorspronkelijke grootte */
-    }
-
-    .timeline li {
-        padding: 1.5rem; /* Oorspronkelijke padding */
-    }
-}
-
-/* iPhone SE and Extra Small Devices */
-@media (max-width: 450px) {
-    #header h1 {
-        font-size: 2.5rem; /* Oorspronkelijke grootte */
-    }
-
-    .service-item {
-        padding: 1rem; /* Oorspronkelijke padding */
-    }
-
-    .service-item i {
-        font-size: 2rem; /* Oorspronkelijke grootte */
-    }
-
-    .timeline li {
-        padding: 1rem; /* Oorspronkelijke padding */
-    }
-
-    .footer-social {
-        gap: 16px; /* Oorspronkelijke gap */
-    }
-    .cv h1{
-        font-size: 2rem;
-    }
-    .mijn-service .section-title{
-        font-size: 2rem;
-    }
-    .vaardigheden .section-title{
-        font-size: 2rem;
-    }
-}
-
-/* Landscape Mode Fixes */
-@media (max-height: 576px) and (orientation: landscape) {
-    #header {
-        height: auto;
-        min-height: 100vh;
-        padding: 60px 0;
-    }
-
-    #header h1 {
-        font-size: 3rem;
-    }
-
-    .nav-link {
-        padding: 0.75rem !important;
-    }
-}
-
-/* Fix for devices with notches */
-@supports (padding: max(0px)) {
-    .nav-bar {
-        padding-left: max(1rem, env(safe-area-inset-left));
-        padding-right: max(1rem, env(safe-area-inset-right));
-    }
-
-    .footer {
-        padding-bottom: max(40px, env(safe-area-inset-bottom));
-    }
-}
-
-.vaardigheden {
-    padding: 120px 0;
-    background: #f5f5f5;
-}
-.vaardigheden-row {
+.meta-item {
     display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-top: 32px;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--muted);
 }
-.vaardigheid-card {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 40px 32px 32px 32px;
-    text-align: center;
-    min-width: 200px;
-    max-width: 260px;
-    margin: 0 8px 24px 8px;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    border: 2px solid #ece6f6;
+
+.meta-item i {
+    width: 16px;
+    color: var(--blue);
+    font-size: 0.85rem;
 }
-.vaardigheid-card:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow: 0 8px 32px rgba(125,62,182,0.13);
-    border-color: var(--accent-color);
+
+.meta-item a {
+    color: var(--muted);
+    transition: color var(--transition);
 }
-.vaardigheid-icoon i {
-    font-size: 3.2rem;
-    color: #7d3eb6;
-    margin-bottom: 18px;
+
+.meta-item a:hover { color: var(--blue); }
+
+.profiel-image img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    transition: transform var(--transition), box-shadow var(--transition);
 }
-.vaardigheid-card h5 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #222;
-    margin: 0 0 12px 0;
-    letter-spacing: 1px;
+
+.profiel-image img:hover {
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: 0 28px 72px rgba(0,0,0,0.2);
 }
-.vaardigheid-card p {
-    color: #444;
+
+/* ===== CV / Timeline ===== */
+.cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.cv-col-title {
     font-size: 1rem;
-    margin: 0;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+.cv-col-title i {
+    color: var(--blue);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.timeline-item:nth-child(2) { transition-delay: 0.1s; }
+.timeline-item:nth-child(3) { transition-delay: 0.2s; }
+.timeline-item:nth-child(4) { transition-delay: 0.3s; }
+.timeline-item:nth-child(5) { transition-delay: 0.4s; }
+
+.timeline-dot {
+    position: absolute;
+    left: -17px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2.5px solid var(--blue);
+    z-index: 1;
+    transition: background var(--transition);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--blue);
+}
+
+.timeline-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    transition: all var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.section-alt .timeline-card {
+    background: var(--white);
+}
+
+.timeline-card:hover {
+    border-color: var(--blue);
+    box-shadow: var(--shadow-hover);
+    transform: translateX(4px);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.timeline-header h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+}
+
+.timeline-role {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+.timeline-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.timeline-badge.current {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.timeline-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.timeline-meta i {
+    color: var(--blue);
+    font-size: 0.7rem;
+}
+
+.cv-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue);
+    padding: 8px 16px;
+    border: 1.5px solid var(--blue);
+    border-radius: 8px;
+    transition: all var(--transition);
+}
+
+.cv-download:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+/* ===== Talen ===== */
+.talen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.taal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all var(--transition);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.taal-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--card-color, var(--blue));
+    border-radius: 20px 0 0 20px;
+    transition: width var(--transition);
+}
+
+.taal-card:hover::before {
+    width: 8px;
+}
+
+.taal-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.taal-card:nth-child(2) { transition-delay: 0.1s; }
+.taal-card:nth-child(3) { transition-delay: 0.2s; }
+
+.taal-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+    border-color: var(--border);
+}
+
+.taal-flag-wrap {
+    font-size: 2.8rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.taal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.taal-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.taal-card p {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+}
+
+.taal-dots {
+    display: flex;
+    gap: 5px;
+    margin-top: 6px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background var(--transition);
+}
+
+.dot.active {
+    background: var(--card-color, var(--blue));
+}
+
+@media (max-width: 768px) {
+    .talen-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Vaardigheden ===== */
+.vaard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.vaard-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 28px;
+    transition: all var(--transition);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.vaard-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.vaard-card:nth-child(2) { transition-delay: 0.1s; }
+.vaard-card:nth-child(3) { transition-delay: 0.2s; }
+.vaard-card:nth-child(4) { transition-delay: 0.3s; }
+
+.vaard-card:hover {
+    border-color: var(--blue);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-6px);
+}
+
+.vaard-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--blue-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background var(--transition);
+}
+
+.vaard-icon i {
+    font-size: 1.3rem;
+    color: var(--blue);
+    transition: color var(--transition);
+}
+
+.vaard-card:hover .vaard-icon {
+    background: var(--blue);
+}
+
+.vaard-card:hover .vaard-icon i {
+    color: var(--white);
+}
+
+.vaard-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.vaard-card p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ===== Contact ===== */
+#contact {
+    background: var(--navy);
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(15,23,42,0.9) 100%),
+                      url('foto/OK_achtergrond.jpeg') center/cover no-repeat;
+    color: var(--white);
+}
+
+.contact-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 1.05rem;
+    margin-top: -32px;
+    margin-bottom: 48px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 20px 20px;
+    transition: all var(--transition);
+    opacity: 0;
+    transform: translateY(16px);
+    min-width: 0;
+}
+
+.contact-card.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.contact-card:nth-child(2) { transition-delay: 0.1s; }
+.contact-card:nth-child(3) { transition-delay: 0.2s; }
+.contact-card:nth-child(4) { transition-delay: 0.3s; }
+
+.contact-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
+    transform: translateY(-4px);
+}
+
+.contact-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.contact-card > div {
+    min-width: 0;
+}
+
+.contact-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2px;
+}
+
+.contact-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #060d1a;
+    padding: 32px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== Responsive ===== */
+
+/* Mobile drawer — lives outside navbar, no stacking context issues */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1010;
+}
+.nav-overlay.open { display: block; }
+
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 72%;
+    max-width: 300px;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    z-index: 1011;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -12px 0 48px rgba(0,0,0,0.15);
+}
+
+.nav-drawer.open { transform: translateX(0); }
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.drawer-brand {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.drawer-close:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.drawer-links {
+    list-style: none;
+    padding: 16px 0;
+    flex: 1;
+}
+
+.drawer-links li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+    text-decoration: none;
+    transition: all 0.2s;
+    border-radius: 0;
+    letter-spacing: 0.01em;
+}
+
+.drawer-links li a:hover {
+    color: #2563eb;
+    background: #eff6ff;
+    padding-left: 36px;
+}
+
+.drawer-footer {
+    padding: 20px 28px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    gap: 16px;
+}
+
+.drawer-footer a {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 1rem;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.drawer-footer a:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+/* =============================================
+   RESPONSIVE — alle breakpoints op één plek
+   ============================================= */
+
+/* Tablet landscape & kleine desktop (max 1024px) */
+@media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+    .profiel-grid { gap: 48px; }
+    .stat-item { padding: 28px 24px; }
+}
+
+/* Tablet (max 900px) — profiel & cv stapelen */
 @media (max-width: 900px) {
-    .vaardigheden-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
+    .profiel-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
-    .vaardigheid-card {
-        min-width: 70vw;
-        max-width: 90vw;
+    .profiel-image {
+        order: -1;
+        max-width: 200px;
+        margin: 0 auto;
     }
+    .profiel-image img {
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+    }
+    .cv-grid { grid-template-columns: 1fr; }
+    .talen-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobiel (max 768px) — drawer nav, kleinere padding */
+@media (max-width: 768px) {
+    section { padding: 64px 0; }
+    .container { padding: 0 20px; }
+
+    /* Navbar */
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .navbar { background: rgba(15,23,42,0.92); }
+    .navbar.scrolled { background: #ffffff; }
+
+    /* Hero */
+    .hero-sub { font-size: 0.95rem; max-width: 100%; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 280px; justify-content: center; }
+
+    /* Stats — 2×2 grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+    }
+    .stat-divider { display: none; }
+    .stat-item {
+        padding: 22px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .stats-grid > .stat-item:nth-child(1),
+    .stats-grid > .stat-item:nth-child(5) {
+        border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-number { font-size: 1.6rem; }
+    .stat-label { font-size: 0.63rem; }
+
+    /* CV timeline cards */
+    .timeline-meta { flex-direction: column; gap: 4px; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; }
+
+    /* Vaardigheden */
+    .vaard-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Footer */
+    .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* Kleine telefoon (max 480px) */
+@media (max-width: 480px) {
+    section { padding: 56px 0; }
+    .container { padding: 0 16px; }
+
+    .section-heading { font-size: 1.75rem; margin-bottom: 28px; }
+
+    /* Hero */
+    .hero-eyebrow { font-size: 0.7rem; }
+    .scroll-hint { bottom: 20px; }
+
+    /* Stats */
+    .stat-number { font-size: 1.4rem; }
+    .stat-item { padding: 18px 8px; }
+
+    /* Profiel */
+    .profiel-image { max-width: 160px; }
+    .profiel-text p { font-size: 0.9rem; }
+
+    /* CV */
+    .cv-col-title { font-size: 0.85rem; }
+    .timeline-card { padding: 16px; }
+    .timeline-header h4 { font-size: 0.88rem; }
+
+    /* Talen */
+    .taal-flag-wrap { font-size: 2.2rem; }
+
+    /* Vaardigheden — 1 kolom op zeer kleine schermen */
+    .vaard-grid { grid-template-columns: 1fr; }
+    .vaard-card { padding: 28px 20px; }
+
+    /* Contact */
+    .contact-card { padding: 16px; gap: 12px; }
+    .contact-icon { width: 38px; height: 38px; }
+    .contact-value { font-size: 0.82rem; }
+
+    /* Back to top */
+    .back-to-top { bottom: 20px; right: 16px; }
 }
